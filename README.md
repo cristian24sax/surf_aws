@@ -72,3 +72,23 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](LICENSE).
 # surf_aws
+
+## Contribuir / Formateo
+
+Prerequisitos: instalar Node.js (recomendado v18+) y pnpm.
+
+Pasos para preparar el entorno y formatear el código:
+
+```powershell
+# instalar pnpm (si no está presente)
+corepack enable
+corepack prepare pnpm@latest --activate
+
+pnpm install
+# formatea usando el binario local de Prettier
+pnpm format
+# en caso de fallo, hay un fallback que usa Node directamente:
+pnpm run format:node
+```
+
+Se incluye `.nvmrc` con la versión recomendada de Node.

@@ -25,6 +25,7 @@
     "migration:revert": "pnpm typeorm migration:revert -d src/database/data-source.ts"
   },
   "dependencies": {
+    "dotenv": "^16.1.4",
     "@nestjs/common": "11",
     "@nestjs/config": "^12.0.0",
     "@nestjs/core": "11",
@@ -40,6 +41,7 @@
     "typeorm": "^1.1.1"
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "@nestjs/cli": "11",
     "@nestjs/schematics": "11",
     "@nestjs/testing": "11",

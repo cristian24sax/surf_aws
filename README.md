@@ -92,3 +92,25 @@ pnpm run format:node
 ```
 
 Se incluye `.nvmrc` con la versión recomendada de Node.
+
+## Migraciones
+
+Para generar o ejecutar migraciones TypeORM necesitas variables de entorno de la base de datos (puedes copiar `.env.example` a `.env`):
+
+```powershell
+copy .env.example .env
+# editar .env y establecer credenciales reales
+```
+
+Alternativamente puedes exportar variables en PowerShell antes de ejecutar el comando:
+
+```powershell
+$env:DB_HOST = 'localhost'
+$env:DB_PORT = '5432'
+$env:DB_USERNAME = 'postgres'
+$env:DB_PASSWORD = 'mypassword'
+$env:DB_DATABASE = 'surf_db'
+pnpm migration:generate
+```
+
+Nota: `DB_PASSWORD` y demás deben ser cadenas de texto; si usas números asegúrate de envolverlos entre comillas.

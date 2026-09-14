@@ -1,6 +1,30 @@
 services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: surf-school-api
+
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USERNAME: surf_school
+      DB_PASSWORD: surf_school
+      DB_DATABASE: surf_school
+
+    ports:
+      - "3000:3000"
+
+    depends_on:
+      - postgres
+
   postgres:
     image: postgres:16
+
     container_name: surf-school-postgres
 
     environment:
@@ -13,8 +37,6 @@ services:
 
     volumes:
       - postgres_data:/var/lib/postgresql/data
-
-    restart: unless-stopped
 
 volumes:
   postgres_data:

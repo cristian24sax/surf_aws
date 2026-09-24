@@ -1,9 +1,6 @@
 import { randomUUID } from 'node:crypto';
 
-import {
-  Subscription,
-  SubscriptionStatus,
-} from '../../domain/entities/subscription.entity';
+import { Subscription, SubscriptionStatus } from '../../domain/entities/subscription.entity';
 import { SubscriptionRepository } from '../../domain/repositories/subscription.repository';
 import { CreateSubscriptionDto } from '../dto/create-subscription.dto';
 import { SUBSCRIPTION_REPOSITORY } from '../tokens';

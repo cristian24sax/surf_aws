@@ -1,9 +1,6 @@
 import { Column, Entity, PrimaryColumn } from 'typeorm';
 
-import {
-  SubscriptionPlan,
-  SubscriptionStatus,
-} from '../../../domain/entities/subscription.entity';
+import { SubscriptionPlan, SubscriptionStatus } from '../../../domain/entities/subscription.entity';
 
 @Entity('subscriptions')
 export class SubscriptionOrmEntity {

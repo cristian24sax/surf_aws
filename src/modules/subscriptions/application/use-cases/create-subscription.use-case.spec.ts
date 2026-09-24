@@ -1,7 +1,4 @@
-import {
-  SubscriptionPlan,
-  SubscriptionStatus,
-} from '../../domain/entities/subscription.entity';
+import { SubscriptionPlan, SubscriptionStatus } from '../../domain/entities/subscription.entity';
 
 import { InMemorySubscriptionRepository } from '../test/fakes/in-memory-subscription.repository';
 

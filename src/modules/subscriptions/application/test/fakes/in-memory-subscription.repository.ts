@@ -9,9 +9,7 @@ export class InMemorySubscriptionRepository implements SubscriptionRepository {
   }
 
   async findById(id: string): Promise<Subscription | null> {
-    return (
-      this.subscriptions.find((subscription) => subscription.id === id) ?? null
-    );
+    return this.subscriptions.find((subscription) => subscription.id === id) ?? null;
   }
 
   get items(): Subscription[] {

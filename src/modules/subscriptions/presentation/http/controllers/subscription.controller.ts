@@ -7,9 +7,7 @@ import { CreateSubscriptionUseCase } from 'src/modules/subscriptions/application
 
 @Controller('subscriptions')
 export class SubscriptionController {
-  constructor(
-    private readonly createSubscriptionUseCase: CreateSubscriptionUseCase,
-  ) {}
+  constructor(private readonly createSubscriptionUseCase: CreateSubscriptionUseCase) {}
 
   @Post()
   async create(@Body() dto: CreateSubscriptionDto) {

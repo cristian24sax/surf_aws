@@ -38,9 +38,7 @@ describe('Subscriptions (e2e)', () => {
       })
       .expect(201);
 
-    expect(response.body.studentId).toBe(
-      '550e8400-e29b-41d4-a716-446655440000',
-    );
+    expect(response.body.studentId).toBe('550e8400-e29b-41d4-a716-446655440000');
 
     expect(response.body.plan).toBe('PREMIUM');
     expect(response.body.status).toBe('ACTIVE');

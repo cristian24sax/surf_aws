@@ -27,6 +27,8 @@
     "migration:revert:test": "NODE_ENV=test pnpm exec ts-node ./node_modules/typeorm/cli.js migration:revert -d src/database/data-source.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1140.0",
+    "@aws-sdk/s3-request-presigner": "^3.1141.0",
     "@nestjs/common": "11",
     "@nestjs/config": "4.0.4",
     "@nestjs/core": "11",
@@ -48,10 +50,12 @@
     "@nestjs/testing": "11",
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.2",
+    "@types/multer": "^2.2.0",
     "@types/node": "^22.20.2",
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
+    "aws-sdk-client-mock": "^4.1.0",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",

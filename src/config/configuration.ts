@@ -10,6 +10,7 @@ export default () => ({
     username: process.env.DB_USERNAME ?? 'surf_school',
     password: process.env.DB_PASSWORD ?? 'surf_school',
     database: process.env.DB_DATABASE ?? 'surf_school',
+    ssl: process.env.DB_SSL === 'true',
   },
 
   auth: {

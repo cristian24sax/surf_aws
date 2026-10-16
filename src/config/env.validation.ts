@@ -15,6 +15,8 @@ export const envValidationSchema = Joi.object({
 
   DB_DATABASE: Joi.string().required(),
 
+  DB_SSL: Joi.boolean().default(false),
+
   JWT_SECRET: Joi.string().min(8).required(),
 
   JWT_EXPIRES_IN: Joi.string().default('1h'),
@@ -22,4 +24,8 @@ export const envValidationSchema = Joi.object({
   AUTH_DEFAULT_EMAIL: Joi.string().email().default('admin@surf.com'),
 
   AUTH_DEFAULT_PASSWORD: Joi.string().min(8).default('admin123'),
+
+  AWS_REGION: Joi.string().default('sa-east-1'),
+
+  S3_BUCKET_NAME: Joi.string().required(),
 });

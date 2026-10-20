@@ -1,0 +1,1 @@
+export const CLASS_TYPE_REPOSITORY = Symbol('CLASS_TYPE_REPOSITORY');

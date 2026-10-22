@@ -7,7 +7,7 @@ import { ClassTypeRepository } from '../../../class-types/domain/repositories/cl
 import { SubscriptionPlan } from '../../../subscription-plans/domain/entities/subscription-plan.entity';
 import { ClassType } from '../../../class-types/domain/entities/class-type.entity';
 import { CreatePlanAllowanceUseCase } from '../use-cases/create-plan-allowance.use-case';
-
+import { QueryFailedError } from 'typeorm';
 describe('CreatePlanAllowanceUseCase', () => {
   let useCase: CreatePlanAllowanceUseCase;
 
@@ -74,6 +74,18 @@ describe('CreatePlanAllowanceUseCase', () => {
       planRepository,
       classTypeRepository,
     );
+  });
+
+  it('debe devolver conflicto si PostgreSQL detecta un duplicado', async () => {
+    const driverError = Object.assign(new Error('duplicate key'), {
+      code: '23505',
+      constraint: 'UQ_plan_allowances_plan_class',
+    });
+    const databaseError = new QueryFailedError('INSERT INTO plan_allowances ...', [], driverError);
+
+    allowanceRepository.save.mockRejectedValue(databaseError);
+
+    await expect(useCase.execute(dto)).rejects.toThrow(ConflictException);
   });
 
   it('debe crear un beneficio válido', async () => {

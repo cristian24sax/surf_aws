@@ -11,6 +11,7 @@ import { envValidationSchema } from './config/env.validation';
 import { CacheModule } from './infrastructure/cache/cache.module';
 import { SubscriptionPlansModule } from './modules/subscription-plans/subscription-plans.module';
 import { ClassTypesModule } from './modules/class-types/class-types.module';
+import { PlanAllowancesModule } from './modules/plan-allowance/plan-allowance.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { ClassTypesModule } from './modules/class-types/class-types.module';
     SubscriptionsModule,
     SubscriptionPlansModule,
     ClassTypesModule,
+    PlanAllowancesModule,
   ],
 })
 export class AppModule {}

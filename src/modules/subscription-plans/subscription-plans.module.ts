@@ -21,5 +21,6 @@ import { ListSubscriptionPlansUseCase } from './application/use-cases/list-subsc
       useClass: TypeOrmSubscriptionPlanRepository,
     },
   ],
+  exports: [SUBSCRIPTION_PLAN_REPOSITORY],
 })
 export class SubscriptionPlansModule {}

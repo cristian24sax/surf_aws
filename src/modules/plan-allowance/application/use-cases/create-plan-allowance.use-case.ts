@@ -18,6 +18,7 @@ import { PlanAllowanceRepository } from '../../domain/repositories/plan-allowanc
 
 import { CreatePlanAllowanceDto } from '../dto/create-plan-allowance.dto';
 import { PLAN_ALLOWANCE_REPOSITORY } from '../tokens';
+import { QueryFailedError } from 'typeorm';
 
 @Injectable()
 export class CreatePlanAllowanceUseCase {
@@ -78,7 +79,25 @@ export class CreatePlanAllowanceUseCase {
       updatedAt: now,
     });
 
-    await this.allowanceRepository.save(allowance);
+    try {
+      await this.allowanceRepository.save(allowance);
+    } catch (error: unknown) {
+      if (error instanceof QueryFailedError) {
+        const driverError = error.driverError as {
+          code?: string;
+          constraint?: string;
+        };
+
+        if (
+          driverError.code === '23505' &&
+          driverError.constraint === 'UQ_plan_allowances_plan_class'
+        ) {
+          throw new ConflictException('Este tipo de clase ya está configurado en el plan');
+        }
+      }
+
+      throw error;
+    }
 
     return allowance;
   }

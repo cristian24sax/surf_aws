@@ -7,9 +7,9 @@ import { SUBSCRIPTION_REPOSITORY } from './application/tokens';
 import { SubscriptionOrmEntity } from './infrastructure/persistence/typeorm/subscription.orm-entity';
 import { TypeOrmSubscriptionRepository } from './infrastructure/persistence/typeorm/typeorm-subscription.repository';
 import { SubscriptionController } from './presentation/http/controllers/subscription.controller';
-
+import { SubscriptionPlansModule } from '../subscription-plans/subscription-plans.module';
 @Module({
-  imports: [TypeOrmModule.forFeature([SubscriptionOrmEntity])],
+  imports: [TypeOrmModule.forFeature([SubscriptionOrmEntity]), SubscriptionPlansModule],
 
   controllers: [SubscriptionController],
 

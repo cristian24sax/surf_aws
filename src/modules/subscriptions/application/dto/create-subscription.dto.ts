@@ -1,11 +1,12 @@
-import { IsEnum, IsUUID } from 'class-validator';
-
-import { SubscriptionPlan } from '../../domain/entities/subscription.entity';
+import { IsUUID } from 'class-validator';
 
 export class CreateSubscriptionDto {
   @IsUUID()
+  schoolId: string;
+
+  @IsUUID()
   studentId: string;
 
-  @IsEnum(SubscriptionPlan)
-  plan: SubscriptionPlan;
+  @IsUUID()
+  planId: string;
 }

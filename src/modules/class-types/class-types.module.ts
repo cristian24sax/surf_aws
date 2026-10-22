@@ -22,5 +22,6 @@ import { ClassTypeController } from './presentation/http/controllers/class-type.
       useClass: TypeOrmClassTypeRepository,
     },
   ],
+  exports: [CLASS_TYPE_REPOSITORY],
 })
 export class ClassTypesModule {}

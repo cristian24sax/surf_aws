@@ -18,9 +18,10 @@ describe('CreateSubscriptionPlanUseCase', () => {
 
   beforeEach(() => {
     repository = {
-      save: jest.fn().mockResolvedValue(undefined),
+      save: jest.fn(),
       findById: jest.fn(),
       findBySchoolId: jest.fn(),
+      findByIdAndSchoolId: jest.fn(),
     };
 
     useCase = new CreateSubscriptionPlanUseCase(repository);

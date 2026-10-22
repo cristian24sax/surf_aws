@@ -27,6 +27,7 @@ describe('ListSubscriptionPlansUseCase', () => {
       save: jest.fn(),
       findById: jest.fn(),
       findBySchoolId: jest.fn(),
+      findByIdAndSchoolId: jest.fn(),
     };
 
     useCase = new ListSubscriptionPlansUseCase(repository);
